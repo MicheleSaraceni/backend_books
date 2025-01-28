@@ -75,6 +75,24 @@ const store = (req, res) => {
     });
 }
 
+const storeReview = (req, res) => {
+
+    const { id } = req.params;
+    const { name, text, vote } = req.body;
+
+
+    const sql = "INSERT INTO reviews (name, text, vote, book_id) VALUES (?, ?, ?, ?)";
+
+    connection.query(sql, [name, text, vote, id], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: "Database query failed" });
+        } else {
+            return res.json({ message: "Reviews added", id: results.insertId });
+        }
+
+    });
+}
+
 const destroy = (req, res) => {
 
     const id = parseInt(req.params.id)
@@ -88,4 +106,4 @@ const destroy = (req, res) => {
 
 }
 
-export { index, show, store, destroy } 
+export { index, show, store, storeReview, destroy } 

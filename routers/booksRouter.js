@@ -1,6 +1,6 @@
 import express from "express"
 const bookRouter = express.Router() // Creiamo un instanza con il metodo router di express
-import { index, show, store, destroy } from "../controllers/booksControllers.js"
+import { index, show, storeReview, destroy, store } from "../controllers/booksControllers.js"
 
 // READ - (INDEX) 
 bookRouter.get("/", index)
@@ -8,8 +8,10 @@ bookRouter.get("/", index)
 // READ - (SHOW)
 bookRouter.get("/:id", show)
 
-// CREATE - (STORE)
+// CREATE - (STORE LIBRI)
 bookRouter.post("/", store)
+// CREATE - (STORE REVIEW)
+bookRouter.post("/reviews/:id", storeReview)
 
 // UPDATE - (UPDATE)
 //bookRouter.put("/:id", update)
