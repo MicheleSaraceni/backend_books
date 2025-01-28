@@ -63,7 +63,7 @@ const store = (req, res) => {
     const { name, text, vote } = req.body;
 
     //preparo la query
-    const sql = "INSERT INTO rewiuvs (name, text, vote, book_id) VALUES (?, ?, ?, ?)";
+    const sql = "INSERT INTO reviews (name, text, vote, book_id) VALUES (?, ?, ?, ?)";
 
     //Eseguiamo la query
     //console.log(results); // results contiene la riga che ci ritorna il server
@@ -71,7 +71,7 @@ const store = (req, res) => {
     connection.query(sql, [name, text, vote, id], (err, results) => {
         if (err) return res.status(500).json({ error: "Database query failed" });
         res.status(201);
-        res.json({ message: "Rewiew added", id: results.insertId });
+        res.json({ message: "Reviews added", id: results.insertId });
     });
 }
 
