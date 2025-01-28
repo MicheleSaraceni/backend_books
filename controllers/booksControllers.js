@@ -12,7 +12,7 @@ const index = (req, res) => {
         res.json({
 
             length: results.length,
-            item: results
+            items: results
 
         })
 
