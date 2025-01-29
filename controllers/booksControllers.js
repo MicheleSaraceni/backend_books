@@ -26,7 +26,7 @@ const show = (req, res) => {
 
     const id = parseInt(req.params.id)
     const sql = `SELECT books.*, AVG(reviews.vote) AS vote_avarage FROM books
-    JOIN reviews ON books.id = reviews.book_id
+    LEFT JOIN reviews ON books.id = reviews.book_id
     WHERE books.id = ?`
     connection.query(sql, [id], (err, results) => {
 
