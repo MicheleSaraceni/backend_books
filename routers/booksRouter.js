@@ -1,19 +1,18 @@
-import express from "express"
-const bookRouter = express.Router() // Creiamo un instanza con il metodo router di express
-import { index, show, storeReview, destroy, store } from "../controllers/booksControllers.js"
+import express from "express";
+import { index, show, storeReview, destroy, store } from "../controllers/booksControllers.js";
 
-//bookRouter.get("/", indexBooks)
-
+// Creiamo un instanza con il metodo router di express
+const bookRouter = express.Router();
 // READ - (INDEX) 
-bookRouter.get("/", index)
+bookRouter.get("/", index);
 
 // READ - (SHOW)
-bookRouter.get("/:id", show)
+bookRouter.get("/:id", show);
 
 // CREATE - (STORE LIBRI)
-bookRouter.post("/", store)
+bookRouter.post("/", store);
 // CREATE - (STORE REVIEW)
-bookRouter.post("/reviews/:id", storeReview)
+bookRouter.post("/reviews/:id", storeReview);
 
 // UPDATE - (UPDATE)
 //bookRouter.put("/:id", update)
@@ -22,6 +21,7 @@ bookRouter.post("/reviews/:id", storeReview)
 //bookRouter.patch("/:id", modify)
 
 // DELETE - (DESTROY)
-bookRouter.delete("/:id", destroy)
+bookRouter.delete("/:id", destroy);
 
-export default bookRouter
+// Esportiamo il nostro router
+export default bookRouter;
