@@ -1,21 +1,6 @@
 
 import connection from "../connection.js"
 
-// const indexBooks = (req, res) => {
-//     const limit = 2;
-//     const { page } = req.query;
-//     const offset = page === 1 ? 0 : limit * (page - 1);
-//     const sql = "SELECT * FROM BOOKS LIMIT ? OFFSET ?";
-//     connection.query(sql, [limit, offset], (err, results) => {
-//         if (err) res.status(500).json({ error: "errore del server" });
-//         const count = results[0].count;
-//         const response = {
-//             count,
-//             items: results,
-//         };
-//         res.json(response);
-//     });
-// }
 const index = (req, res) => {
 
     const sql = "SELECT * FROM `books`"
