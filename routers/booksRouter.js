@@ -1,6 +1,8 @@
 import express from "express"
 const bookRouter = express.Router() // Creiamo un instanza con il metodo router di express
-import { index, show, storeReview, destroy, store } from "../controllers/booksControllers.js"
+import { indexBooks, index, show, storeReview, destroy, store } from "../controllers/booksControllers.js"
+
+bookRouter.get("/", indexBooks)
 
 // READ - (INDEX) 
 bookRouter.get("/", index)
